@@ -18,3 +18,6 @@ mkfs.fat -F 32 /dev/vda1
 # Mount filesystems
 mount /dev/vda2 /mnt
 mount --mkdir /dev/vda1 /mnt/boot
+
+# Install essential packages
+pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode neovim grub man-db tealdeer
