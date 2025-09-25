@@ -21,3 +21,13 @@ mount --mkdir /dev/vda1 /mnt/boot
 
 # Install essential packages
 pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode neovim grub man-db tealdeer
+
+# System configuration
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Chroot
+arch-chroot /mnt
+
+# Timezone
+ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+hwclock --systohc
