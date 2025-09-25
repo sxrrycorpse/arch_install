@@ -35,7 +35,9 @@ hwclock --systohc
 # Localization
 sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
 locale-gen
+touch /etc/locale.conf
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 # Hostname
+touch /etc/hostname
 echo "aetherius" > /etc/hostname
