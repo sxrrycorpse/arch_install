@@ -41,9 +41,3 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 # Hostname
 touch /etc/hostname
 echo "aetherius" > /etc/hostname
-
-# Root password
-read -sp "root_password: "pswd"
-passwd
-echo -e "\n$pswd"
-echo -e "\n$pswd"
