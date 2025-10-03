@@ -30,11 +30,11 @@ arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 arch-chroot /mnt hwclock --systohc
 
 # Localization
-sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
-locale-gen
-touch /etc/locale.conf
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
+arch-chroot /mnt sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
+arch-chroot /mnt locale-gen
+arch-chroot /mnt touch /etc/locale.conf
+arch-chroot /mnt echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 # Hostname
-touch /etc/hostname
-echo "aetherius" > /etc/hostname
+arch-chroot /mnt touch /etc/hostname
+arch-chroot /mnt echo "aetherius" > /etc/hostname
