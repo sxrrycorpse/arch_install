@@ -25,12 +25,9 @@ pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode neovim grub man-
 # System configuration
 genfstab -U /mnt >> /mnt/etc/fstab
 
-# Chroot
-arch-chroot /mnt
-
 # Timezone
-ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
-hwclock --systohc
+arch-chroot /mnt ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+arch-chroot /mnt hwclock --systohc
 
 # Localization
 sed -i 's/#en_US.UTF-8/en_US.UTF-8/' /etc/locale.gen
