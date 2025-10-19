@@ -20,7 +20,7 @@ mount /dev/vda2 /mnt
 mount --mkdir /dev/vda1 /mnt/boot
 
 # Install essential packages
-pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode neovim man-db tealdeer grub
+pacstrap -K /mnt base base-devel linux linux-firmware amd-ucode neovim man-db tealdeer grub efibootmgr
 
 # System configuration
 genfstab -U /mnt >> /mnt/etc/fstab
