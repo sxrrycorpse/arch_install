@@ -43,6 +43,10 @@ echo "aetherius" > /mnt/etc/hostname
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
+# Network configuration
+touch /mnt/etc/systemd/network/10-wired.network
+echo -e "[Match]\nName=en*\n\n[Link]\nRequiredforOnline=routable\n\n[Network]\nDHCP=yes" >> /mnt/etc/systemd/network/10-wired.network
+
 # Useradd
 read -p "username: " username
 read -sep "password: password
