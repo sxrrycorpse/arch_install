@@ -42,3 +42,9 @@ echo "aetherius" > /mnt/etc/hostname
 # Grub-install
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+
+# Useradd
+read -p "username: " username
+read -sep "password: password
+useradd -m $username
+echo $password | passwd $username --stdin
