@@ -57,7 +57,7 @@ systemctl enable --now systemd-resolved
 
 # Useradd
 read -p "username: " username
-read -sep "password: password
+read -sep "password: " password
 useradd -m $username
 echo $password | passwd $username --stdin
 usermod -aG wheel $username
