@@ -52,3 +52,5 @@ read -p "username: " username
 read -sep "password: password
 useradd -m $username
 echo $password | passwd $username --stdin
+usermod -aG wheel $username
+arch-chroot /mnt sed -i 's/# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
