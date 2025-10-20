@@ -46,9 +46,14 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 # Network configuration
 touch /mnt/etc/systemd/network/10-wired.network
 echo -e "[Match]\nName=en*\n\n[Link]\nRequiredforOnline=routable\n\n[Network]\nDHCP=yes" >> /mnt/etc/systemd/network/10-wired.network
+arch-chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+# DNS configuration
+mkdir /etc/systemd/resolved.conf.d
+touch /etc/systemd/resolved.conf.d/dns_servers.conf
+echo -e "[Resolve]\nDNS=8.8.8.8 ::1\nDomains=~." >> /etc/systemd/resolved.conf.d/dns_servers.conf
 systemctl enable --now systemd-networkd
 systemctl enable --now systemd-resolved
-arch-chroot /mnt ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # Useradd
 read -p "username: " username
