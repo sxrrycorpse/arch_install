@@ -37,7 +37,8 @@ echo "LANG=en_US.UTF-8" > /mnt/etc/locale.conf
 
 # Hostname
 touch /mnt/etc/hostname
-echo "aetherius" > /mnt/etc/hostname
+read -p "hostname: " hostname
+echo $hostname > /mnt/etc/hostname
 
 # Grub-install
 arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
