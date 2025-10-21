@@ -3,7 +3,7 @@
 # Automated-Arch-Install-w/Bash
 
 # Update mirrorlist
-reflector --country India --latest 10 --sort rate --save /etc/pacman.d/mirrorlist --verbose
+reflector --country India --age 48 --fastest 5 --latest 10 --sort rate --save /etc/pacman.d/mirrorlist --verbose
 
 # Disk partition
 sgdisk -Z /dev/vda
